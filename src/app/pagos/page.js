@@ -1,9 +1,9 @@
 import { Pagos } from '@/sections/pagos';
+export const metadata = {
+	title: 'Pago de facturas - Banking',
+	description: 'Con Banking podés gestionar y pagar tus facturas rápido y fácil. '
+};
 
 export default function PagosPage() {
-	return (
-		<main className="main-content" id="main-content">
-			<Pagos />
-		</main>
-	);
+	return <Pagos />;
 }

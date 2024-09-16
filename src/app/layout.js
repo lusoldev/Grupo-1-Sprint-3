@@ -20,7 +20,9 @@ export default function RootLayout({ children }) {
 					<body className={plusJakartaSans.className}>
 						<Header />
 						<Aside />
-						{children}
+						<main className="main-content" id="main-content">
+							{children}
+						</main>
 						<Footer />
 					</body>
 				</NavProvider>

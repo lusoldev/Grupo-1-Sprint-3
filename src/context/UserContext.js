@@ -1,7 +1,6 @@
 'use client';
 
 import { createContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types'; // Importar PropTypes
 import usuarioDemo from '../utils/usuarioDemo.json';
 
 // Crear el contexto
@@ -65,9 +64,4 @@ export const UserProvider = ({ children }) => {
 			{children}
 		</UserContext.Provider>
 	);
-};
-
-// Añadir PropTypes para validar las props
-UserProvider.propTypes = {
-	children: PropTypes.node.isRequired
 };
