@@ -1,0 +1,1 @@
+export { SimularPrestamo } from './Prestamos';
