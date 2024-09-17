@@ -57,8 +57,8 @@ export const Aside = () => {
 					</Link>
 				</li>
 				<li>
-					<Link onClick={() => setMenuMobileOpen(false)} href="/simular-prestamo">
-						<span className="material-symbols-outlined icon">calculate</span> Simular Préstamo
+					<Link onClick={() => setMenuMobileOpen(false)} href="/prestamos">
+						<span className="material-symbols-outlined icon">calculate</span> Simular Préstamo 
 					</Link>
 				</li>
 				<li>
