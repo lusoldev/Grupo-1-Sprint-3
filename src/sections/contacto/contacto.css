@@ -1,0 +1,79 @@
+.contactoFormContainer {
+    padding: 64px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.contactoFormGroup {
+    margin-bottom: 20px;
+}
+
+.contactoFormContainer h1{
+    text-align: center;
+}
+
+.contactoFormGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.contactoFormGroup input,
+.contactoFormGroup select,
+.contactoFormGroup textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.contactoFormGroup input::placeholder,
+.contactoFormGroup textarea::placeholder {
+    color: #999999;
+}
+
+.contactoFormGroup button {
+    width: 100%;
+    background-color: #0283e9;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contactoFormGroup button:hover {
+    background-color: #0239d6; 
+}
+
+.error {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f00;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .contactoFormContainer {
+        padding: 16px;
+    }
+
+    .contactoFormGroup input,
+    .contactoFormGroup select,
+    .contactoFormGroup textarea,
+    .contactoFormGroup button {
+        font-size: 14px;
+    }
+}
