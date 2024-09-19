@@ -1,4 +1,4 @@
-import { Contacto } from '@/sections';
+import { Contacto } from '@/sections/contacto';
 
 export default function ContactoPage() {
 	return (
