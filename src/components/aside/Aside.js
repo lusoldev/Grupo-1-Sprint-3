@@ -52,12 +52,12 @@ export const Aside = () => {
 					</Link>
 				</li>
 				<li>
-					<Link onClick={() => setMenuMobileOpen(false)} href="/solicitar-prestamo">
+					<Link onClick={() => setMenuMobileOpen(false)} href="/prestamos">
 						<span className="material-symbols-outlined icon">paid</span> Solicitar Préstamo{' '}
 					</Link>
 				</li>
 				<li>
-					<Link onClick={() => setMenuMobileOpen(false)} href="/prestamos">
+					<Link onClick={() => setMenuMobileOpen(false)} href="/simulador">
 						<span className="material-symbols-outlined icon">calculate</span> Simular Préstamo 
 					</Link>
 				</li>

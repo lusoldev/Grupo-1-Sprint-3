@@ -1,1 +1,1 @@
-export { SimularPrestamo } from './Prestamos';
+export { SolicitarPrestamo } from './Prestamos';
