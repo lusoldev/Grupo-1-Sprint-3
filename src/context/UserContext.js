@@ -20,7 +20,7 @@ const useUsuarioActual = () => {
 		}
 	}, []);
 
-	return usuarioActual;
+	return [usuarioActual, setUsuarioActual];
 };
 
 // Hook para obtener la lista de usuarios
@@ -40,26 +40,36 @@ const useUsuarios = () => {
 		}
 	}, []);
 
-	return usuarios;
+	useEffect(() => {
+		return () => {};
+	}, [usuarios]);
+
+	return [usuarios, setUsuarios];
 };
 
 // Proveedor de contexto
 export const UserProvider = ({ children }) => {
 	// Inicializar el estado directamente con los valores retornados por los hooks
-	const usuarioActual = useUsuarioActual();
-	const usuarios = useUsuarios();
+	const [usuarioActual, setUsuarioActual] = useUsuarioActual();
+	const [usuarios, setUsuarios] = useUsuarios();
 
 	const updateUsuarios = (usuariosActualizado) => {
 		if (!usuariosActualizado) return;
 		localStorage.setItem('usuarios', JSON.stringify(usuariosActualizado));
+		setUsuarios(usuariosActualizado);
 	};
-
+	const updateUsuarioActual = (usuario) => {
+		if (!usuario) return;
+		localStorage.setItem('usuarioActual', usuarioActual);
+		setUsuarioActual(usuario);
+	};
 	return (
 		<UserContext.Provider
 			value={{
 				usuarioActual,
 				usuarios,
-				updateUsuarios
+				updateUsuarios,
+				updateUsuarioActual
 			}}>
 			{children}
 		</UserContext.Provider>

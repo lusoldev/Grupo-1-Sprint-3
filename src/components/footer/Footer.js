@@ -36,7 +36,7 @@ export const Footer = () => {
 					<a href="https://www.facebook.com/" target="facebook">
 						<img src="/iconos/icono-facebook.svg" alt="Ingresar a Facebook" />
 					</a>
-					<a href="https://github.com/martinisaiasabdala/Grupo-1-Sprint-2" target="github">
+					<a href="https://github.com/lusoldev/Grupo-1-Sprint-3" target="github">
 						<img src="/iconos/icono-github.svg" alt="Ingresar a GitHub" />
 					</a>
 					<a href="https://www.instagram.com/" target="instagram">
