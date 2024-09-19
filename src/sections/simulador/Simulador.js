@@ -1,8 +1,7 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
-import styles from './prestamos.module.css';
-import { useUserContext } from '../../hooks/useUserContext';
+import styles from './simulador.module.css';
 import { Exito, Error } from '../../components';
 
 function blockInvalidChar(e) {
@@ -10,7 +9,7 @@ function blockInvalidChar(e) {
 	e.key;
 }
 
-export const SolicitarPrestamo = () => {
+export const SimularPrestamo = () => {
 	// Estados para los valores del simulador
 	const [loanType, setLoanType] = useState('');
 	const [amount, setAmount] = useState('');
@@ -22,8 +21,7 @@ export const SolicitarPrestamo = () => {
 	const [mensajeFeedback, setMensajeFeedback] = useState('');
 	const [mostrarMensajeExito, setMostrarMensajeExito] = useState(false);
 	const [mostrarMensajeError, setMostrarMensajeError] = useState(false);
-	// contexto
-	const { usuarios, updateUsuarios, usuarioActual } = useUserContext();
+
 	// Función para abrir el simulador con un tipo de préstamo y tasa de interés
 	const openSimulator = (loanType, interestRate) => {
 		setLoanType(loanType);
@@ -36,14 +34,19 @@ export const SolicitarPrestamo = () => {
 
 	const mostrarFeedback = (tipo, message) => {
 		setMensajeFeedback(message);
-		const esExito = tipo === 'exito';
-		setMostrarMensajeExito(esExito);
-		setMostrarMensajeError(!esExito);
+		if (tipo == 'exito') {
+			setMostrarMensajeExito(true);
+			setTimeout(() => {
+				setMostrarMensajeExito(false);
+			}, 3000);
+		}
 
-		setTimeout(() => {
-			setMostrarMensajeExito(false);
-			setMostrarMensajeError(false);
-		}, 3000);
+		if (tipo == 'error') {
+			setMostrarMensajeError(true);
+			setTimeout(() => {
+				setMostrarMensajeError(false);
+			}, 3000);
+		}
 	};
 
 	// Función para calcular el préstamo
@@ -78,35 +81,11 @@ export const SolicitarPrestamo = () => {
 			setTotalPayment(`Pago Total: $${calculatedTotalPayment.toFixed(2)}`);
 		}
 	};
-	const submitLoan = () => {
-		const parsedAmount = parseFloat(amount);
-		const parsedInterestRate = parseFloat(interestRate);
-		const parsedTerm = parseInt(term);
 
-		if (
-			validateLoan(parsedAmount, parsedInterestRate, parsedTerm) &&
-			confirm('¿Estás seguro de que quieres solicitar el prestamo?')
-		) {
-			const usuariosActualizado = usuarios;
-			const id = Math.random().toString(16).slice(2);
-			usuariosActualizado[usuarioActual.toLowerCase()].saldo =
-				parseFloat(usuariosActualizado[usuarioActual.toLowerCase()].saldo) + parsedAmount;
-			usuariosActualizado[usuarioActual.toLowerCase()].historialPrestamos.push({
-				monto: parsedAmount,
-				tipo: loanType,
-				tasaInteres: parsedInterestRate,
-				plazo: parsedTerm,
-				fecha: new Date().toISOString().slice(0, 10),
-				id
-			});
-			updateUsuarios(usuariosActualizado);
-			mostrarFeedback('exito', 'Préstamo solicitado exitosamente.');
-		}
-	};
 	return (
 		<section className={styles.prestamos}>
-			<h1>Solicitar Préstamo</h1>
-			<p>La mejor tasa de financiación del mercado.</p>
+			<h1>Préstamos Disponibles</h1>
+			<p>Encuentra la mejor opción de financiamiento para tus necesidades.</p>
 			<br />
 
 			<div className={styles.loanOptions}>
@@ -117,7 +96,7 @@ export const SolicitarPrestamo = () => {
 						<li>Monto máximo: $100.000</li>
 						<li>Plazo: Hasta 24 meses</li>
 					</ul>
-					<button onClick={() => openSimulator('Préstamo Personal', 12)}>Solicitar</button>
+					<button onClick={() => openSimulator('Préstamo Personal', 12)}>Simular</button>
 				</div>
 
 				<div className={styles.loanCard}>
@@ -127,7 +106,7 @@ export const SolicitarPrestamo = () => {
 						<li>Monto máximo: $500.000</li>
 						<li>Plazo: Hasta 48 meses</li>
 					</ul>
-					<button onClick={() => openSimulator('Préstamo Hipotecario', 8)}>Solicitar</button>
+					<button onClick={() => openSimulator('Préstamo Hipotecario', 8)}>Simular</button>
 				</div>
 
 				<div className={styles.loanCard}>
@@ -137,12 +116,12 @@ export const SolicitarPrestamo = () => {
 						<li>Monto máximo: $50.000</li>
 						<li>Plazo: Hasta 12 meses</li>
 					</ul>
-					<button onClick={() => openSimulator('Préstamo Prendario', 9)}>Solicitar</button>
+					<button onClick={() => openSimulator('Préstamo Prendario', 9)}>Simular</button>
 				</div>
 			</div>
 
 			<div className={styles.loanSimulator}>
-				<h2>Formulario de solicitud de préstamo</h2>
+				<h2>Simulador de Préstamos</h2>
 				<form id="simulator-form" onSubmit={(e) => e.preventDefault()}>
 					<div className={styles.formGroup}>
 						<label htmlFor="loan-type">Tipo de Préstamo:</label>
@@ -197,14 +176,9 @@ export const SolicitarPrestamo = () => {
 							required
 						/>
 					</div>
-					<div className={styles.formButtons}>
-						<button className={styles.requestLoan} type="button" onClick={() => submitLoan()}>
-							Solicitar
-						</button>
-						<button className={styles.calculateLoan} type="button" onClick={() => calculateLoan()}>
-							Calcular <span className="material-symbols-outlined  icon">calculate</span>
-						</button>
-					</div>
+					<button className={styles.requestLoan} type="button" onClick={calculateLoan}>
+						Calcular <span className="material-symbols-outlined  icon">calculate</span>
+					</button>
 				</form>
 				{mostrarMensajeExito && <Exito message={mensajeFeedback} />}
 				{mostrarMensajeError && <Error message={mensajeFeedback} />}
