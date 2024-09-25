@@ -66,6 +66,11 @@ export const Aside = () => {
 						<span className="material-symbols-outlined icon">currency_exchange</span> Conversor{' '}
 					</Link>
 				</li>
+				<li>
+					<Link onClick={() => setMenuMobileOpen(false)} href="/tarjetas">
+						<span className="material-symbols-outlined icon">wallet</span> Tarjetas{' '}
+					</Link>
+				</li>
 			</ul>
 		</aside>
 	);
