@@ -1,0 +1,87 @@
+.sectionTarjetas {
+    padding: 64px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta {
+    background: linear-gradient(239deg, #0239d6, #01cdfb);
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 320px;
+}
+
+.classContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjetasGuardadas {
+    color: black;
+}
+
+.tarjeta h3 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+}
+
+.numero {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.expiracion {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.botones {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#editar {
+    color: black;
+    background-color: white;
+}
+
+#eliminar {
+    background-color: red;
+    color: white;
+}
+
+.botones button {
+    background-color: white;
+    color: #4A90E2;
+    border: none;
+    padding: 8px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 3px;
+    font-size: 12px;
+}
+
+.botones button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
