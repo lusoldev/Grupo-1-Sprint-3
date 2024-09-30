@@ -30,6 +30,7 @@
 	border: 1px solid #ccc;
 	border-radius: 20px;
 	overflow: hidden;
+	background-color: #fff;
 }
 
 .searchBar input[type='text'] {
@@ -65,13 +66,15 @@
 	gap: 16px;
 }
 
-.headerIcons button {
+.headerIcons button,
+.headerIcons a {
 	background: none;
 	border: none;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	font-size: 16px;
+	text-decoration: none;
 }
 
 .headerIcons :global(.material-symbols-outlined) {
@@ -149,6 +152,7 @@
 	.searchBar {
 		border: initial;
 		justify-content: end;
+		background: none;
 	}
 
 	.searchBar input {

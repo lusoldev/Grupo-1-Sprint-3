@@ -30,9 +30,9 @@ export const Header = () => {
 					</button>
 				</div>
 				<div className={styles.headerIcons}>
-					<button aria-label="Notificaciones">
-						<div className="material-symbols-outlined">notifications</div>
-					</button>
+					<Link href={'/contacto'} aria-label="Página de contacto">
+						<div className="material-symbols-outlined">help</div>
+					</Link>
 					<Link href={'/cuentas'} aria-label="Perfil de usuario" className={styles.userProfile}>
 						<div className={`material-symbols-outlined ${styles.userImage}`}>account_circle</div>
 						<div className={styles.userOptions}>

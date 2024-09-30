@@ -21,7 +21,9 @@ export const ToggleForms = () => {
 			<div className={styles.cuentasToggle}>
 				{usuarioActual === 'Demo' ? (
 					<button
-						className={`${styles.cuentasToggleRegister} ${esUsuarioNuevo ? 'active' : ''}`}
+						className={`${styles.cuentasToggleRegister} ${
+							esUsuarioNuevo && !inicioDeSesionSeleccionado ? 'active' : ''
+						}`}
 						onClick={() => setInicioDeSesionSeleccionado(false)}>
 						Registrarse
 					</button>
@@ -31,7 +33,7 @@ export const ToggleForms = () => {
 					</button>
 				)}
 				<button
-					className={`${styles.cuentasToggleLogin} ${!esUsuarioNuevo ? 'active' : ''}`}
+					className={`${styles.cuentasToggleLogin} ${!esUsuarioNuevo || inicioDeSesionSeleccionado ? 'active' : ''}`}
 					onClick={() => setInicioDeSesionSeleccionado(true)}>
 					Iniciar sesión
 				</button>
