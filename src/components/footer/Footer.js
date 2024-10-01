@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import styles from './footer.module.css';
+import Image from 'next/image';
 
 export const Footer = () => {
 	return (
@@ -10,7 +11,7 @@ export const Footer = () => {
 				<div className={styles.logo}>
 					<div className={styles.imagenFooter}>
 						<a href="index.html">
-							<img src="/imagenes/banking-isologotipoai.png" alt="Banking Logo" />
+							<Image src="/imagenes/banking-isologotipoai.png" alt="Banking Logo" width={75} height={150}/>
 						</a>
 					</div>
 					<div className={styles.copyRight}>
@@ -34,13 +35,13 @@ export const Footer = () => {
 				</div>
 				<div className={styles.redes}>
 					<a href="https://www.facebook.com/" target="facebook">
-						<img src="/iconos/icono-facebook.svg" alt="Ingresar a Facebook" />
+						<Image src="/iconos/icono-facebook.svg" alt="Ingresar a Facebook" width={50} height={50}/>
 					</a>
 					<a href="https://github.com/lusoldev/Grupo-1-Sprint-3" target="github">
-						<img src="/iconos/icono-github.svg" alt="Ingresar a GitHub" />
+						<Image src="/iconos/icono-github.svg" alt="Ingresar a GitHub" width={50} height={50}/>
 					</a>
 					<a href="https://www.instagram.com/" target="instagram">
-						<img src="/iconos/icono-instagram.svg" alt="Ingresar a Instagram" />
+						<Image src="/iconos/icono-instagram.svg" alt="Ingresar a Instagram" width={50} height={50}/>
 					</a>
 				</div>
 			</div>
