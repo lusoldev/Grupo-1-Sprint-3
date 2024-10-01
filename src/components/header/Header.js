@@ -6,6 +6,7 @@ import { useNavContext } from '../../hooks/useNavContext';
 
 import styles from './header.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const Header = () => {
 	// Consumir el valor del contexto
@@ -20,7 +21,7 @@ export const Header = () => {
 	return (
 		<header className={styles.header}>
 			<Link href="/" aria-label="Volver al inicio">
-				<img src="/imagenes/banking-logo.png" alt="Banking Logo" />
+				<Image src="/imagenes/banking-logo.png" alt="Banking Logo" width={150} height={100}/>
 			</Link>
 			<div className={styles.navigation}>
 				<div className={styles.searchBar}>
